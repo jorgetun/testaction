@@ -20,11 +20,11 @@ jobs:
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       with:
-        args: set image --record deployment/cluster-1 prueba-gha=${{ github.repository }}:${{ github.sha }}
+        args: set image --record deployment/hello-http prueba-gha=${{ github.repository }}:${{ github.sha }}
     - name: verify deployment
       uses: steebchen/kubectl@master
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         KUBECTL_VERSION: "1.15"
       with:
-        args: '"rollout status deployment/cluster-1"'
+        args: '"rollout status deployment/hello-http"'
