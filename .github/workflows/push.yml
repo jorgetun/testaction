@@ -20,7 +20,7 @@ jobs:
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       with:
-        args: kubectl rollout restart deployment/hello-http
+        args: rollout restart deployment/hello-http
     - name: verify deployment
       uses: steebchen/kubectl@master
       env:
